@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
@@ -6,29 +7,59 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Animator _animator;
+    private static readonly int HasMagic = Animator.StringToHash("hasMagic");
+    private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(key: KeyCode.Space))
+        if (Input.GetKeyDown(key: KeyCode.Space) && !_animator.GetBool(HasMagic))
         {
-            IsJumping(true);
+            _animator.SetBool(IsJumping, true);
         }
-        else
+        else if (Input.GetKeyDown(key: KeyCode.M) && !_animator.GetBool(IsJumping))
         {
-            IsJumping(false);
+            _animator.SetBool(HasMagic, true);
+        }
+        else if (Input.GetKeyDown(key: KeyCode.RightArrow))
+        {
+            transform.Rotate(Vector3.up * 90);
+        }
+        else if (Input.GetKeyDown(key: KeyCode.LeftArrow))
+        {
+            transform.Rotate(Vector3.down * 90);
+        }
 
+        else if (Input.GetKeyDown(key: KeyCode.A))
+        {
+            transform.Translate(Vector3.left);
+        }
+
+        else if (Input.GetKeyDown(key: KeyCode.D))
+        {
+            transform.Translate(Vector3.right);
         }
     }
 
-    private void IsJumping(bool isSpacePressed)
+    /// <summary>
+    /// This method is being used as an Animation event
+    /// </summary>
+    private void StopJumping()
     {
-        _animator.SetBool("isJumping", isSpacePressed);
+        _animator.SetBool(IsJumping, false);
+    }
+
+    /// <summary>
+    /// This method is being used as an Animation event
+    /// </summary>
+    private void StopMagic()
+    {
+        _animator.SetBool(HasMagic, false);
     }
 }
