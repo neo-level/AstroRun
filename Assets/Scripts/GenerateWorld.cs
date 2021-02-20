@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GenerateWorld : MonoBehaviour
 {
-    [SerializeField] private GameObject[] platforms;
     private GameObject _dummy;
 
     private int[] randomTurn = {-90, 90};
@@ -22,11 +21,18 @@ public class GenerateWorld : MonoBehaviour
         
         for (int i = 0; i < _numberOfGeneratedPlatforms; i++)
         {
-            int platformNumber = Random.Range(0, platforms.Length);
 
-            var platform = Instantiate(platforms[platformNumber], _dummy.transform.position, _dummy.transform.rotation);
+            var platform = Pool.singleton.GetRandom();
+            if (platform == null)
+            {
+                return;
+            }
+            platform.SetActive(true);
+            platform.transform.position = _dummy.transform.position;
+            platform.transform.rotation = _dummy.transform.rotation;
+            
 
-            switch (platforms[platformNumber].tag)
+            switch (platform.tag)
             {
                 case "stairsUp":
                     _dummy.transform.Translate(Vector3.up * _stairHeight);
