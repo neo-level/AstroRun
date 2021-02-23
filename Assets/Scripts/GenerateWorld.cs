@@ -22,7 +22,7 @@ public class GenerateWorld : MonoBehaviour
         for (int i = 0; i < _numberOfGeneratedPlatforms; i++)
         {
 
-            var platform = Pool.singleton.GetRandom();
+            var platform = Pool.Singleton.GetRandom();
             if (platform == null)
             {
                 return;

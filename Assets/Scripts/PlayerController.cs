@@ -7,6 +7,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Animator _animator;
+    public static GameObject Player;
+    public static GameObject CurrentPlatform;
+    
     private static readonly int HasMagic = Animator.StringToHash("hasMagic");
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
@@ -14,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        Player = gameObject;
     }
 
     // Update is called once per frame
@@ -45,6 +49,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector3.right);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        CurrentPlatform = other.gameObject;
     }
 
     /// <summary>

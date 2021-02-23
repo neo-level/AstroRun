@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8617139142280814113}
   - component: {fileID: 8617139142273659265}
+  - component: {fileID: 539811691590431052}
+  - component: {fileID: -4933135888285167096}
+  - component: {fileID: 626021543}
+  - component: {fileID: -4621518845655244508}
   m_Layer: 0
   m_Name: stairsUp
   m_TagString: stairsUp
@@ -54,6 +58,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &539811691590431052
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617139142280905217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: aa3d324a3f5434a2488d85d7b3c73aa6, type: 3}
+--- !u!114 &-4933135888285167096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617139142280905217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3da07ce397c15740b16ce764c8a2f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &626021543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617139142280905217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.31, y: 1.39, z: 1}
+  m_Center: {x: 0, y: 5.87, z: -4.56}
+--- !u!114 &-4621518845655244508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617139142280905217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44162317d6f1774f842f21757fe4d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8617139142280905219
 GameObject:
   m_ObjectHideFlags: 0

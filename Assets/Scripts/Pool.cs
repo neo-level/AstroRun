@@ -14,13 +14,13 @@ public class PoolItem
 
 public class Pool : MonoBehaviour
 {
-    public static Pool singleton;
+    public static Pool Singleton;
     public List<PoolItem> items;
     public List<GameObject> pooledItems;
 
     private void Awake()
     {
-        singleton = this;
+        Singleton = this;
         pooledItems = new List<GameObject>();
 
         foreach (PoolItem item in items)
@@ -58,16 +58,6 @@ public class Pool : MonoBehaviour
         }
 
         return null;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
 
